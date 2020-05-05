@@ -1,4 +1,4 @@
-/**
+/*
  * 
  * Manipulating the DOM exercise.
  * Exercise programmatically builds navigation,
@@ -12,29 +12,13 @@
  * JS Standard: ESlint
  * 
 */
-
-/**
- * Define Global Variables
- * 
-*/
-// navigation global var
+//Variable to get the ul element 
 const navBar = document.getElementById('navbar__list');
-// sections global var
+
+//Variable to get section elements
 const sections = document.querySelectorAll('section');
 
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
+//Function to assemble the navigation menu
 const assembleNav = function () {
     //Create a blank strink that we can add HTML into
     let navLink = '';
@@ -42,35 +26,28 @@ const assembleNav = function () {
     for (section of sections) {
         //Variable for section ID
         const sectionID = section.id;
-        //Variable for data-nav 
+        //Variable for data-nav info
         const sectionDataNav = section.dataset.nav;
-        //Build html to add to navbar
-        navLink += `<li><a class="menu__link ${sectionID}" href="#${sectionID}">${sectionDataNav}</a></li>`;
+        //Build html to add to navbar 
+        navLink += `<li><a class="menu__link" href="#${sectionID}">${sectionDataNav}</a></li>`;
     };
-
     //Add links to the nav bar
     navBar.innerHTML = navLink;
-
-
 };
 
-//build the nav
+//Build menu 
 assembleNav();
 
-// Add class 'active' to section when near top of viewport
-// GET THE POSITION OF THE BOX
-//ASSIGN THE ACTIVE CL
-
-
-
-//identify the position of a section
+//Identify the position of a section
 const boxPosition = function (section) {
     return section.getBoundingClientRect().top;
 } ;
 
-// remove 'your-active-class' from div 
+//Remove 'your-active-class' from div 
 const removeActiveClass = function (section) {
     section.classList.remove('your-active-class');
+    //Remove background color of section when it leaves the display
+    section.style.backgroundColor = null;
 }
 
 //Set section as active:
@@ -78,10 +55,12 @@ const removeActiveClass = function (section) {
 const addActiveClass = function (condition, section) {
     if (condition) {
         section.classList.add('your-active-class');
+        //Highlight background of section to show that the element is active     
+        section.style.backgroundColor = 'rgba(255,255,255,.3)';
     };
 };
 
-// function to remove and add 'your-active-class' 
+//Function to remove and add 'your-active-class' 
 const makeActive = function () {
     //loop through sections in DOM
     for (section of sections) {
@@ -96,20 +75,4 @@ const makeActive = function () {
     };
 };
 
-//Activates function to assign the class: 'your-active-class' on scroll
 window.addEventListener('scroll', makeActive);
-
-// Scroll to anchor ID using scrollTO event
-
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active

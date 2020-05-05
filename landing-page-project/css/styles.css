@@ -7,7 +7,9 @@
  * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
  *
 */
-
+html {
+    scroll-behavior: smooth;
+  }
 
 /* ---- Base Rules ---- */
 body {
@@ -16,8 +18,8 @@ body {
     margin: 0;
     font-family: 'Merriweather', serif;
     color: #fff;
+    min-width: 100%;
 }
-
 
 /* Typeography General*/
 h1 {
@@ -92,9 +94,8 @@ section {
 .page__header {
     font-family: 'Merriweather', serif;
     background: #fff;
-    position: fixed;
     top: 0;
-    width: 100%;
+    min-width: 100%;
     z-index: 5;
 }
 
